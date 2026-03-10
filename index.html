@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rising Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#0f2027);
+    background-size:400% 400%;
+    animation:gradientBG 15s ease infinite;
+    color:white;
+    overflow-x:hidden;
+}
+
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Floating Circles */
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.05);
+    animation:float 6s infinite ease-in-out;
+}
+
+.circle:nth-child(1){
+    width:200px;height:200px;top:10%;left:10%;
+}
+.circle:nth-child(2){
+    width:150px;height:150px;bottom:20%;right:15%;
+}
+
+@keyframes float{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-30px);}
+    100%{transform:translateY(0px);}
+}
+
+/* Header */
+header{
+    position:fixed;
+    width:100%;
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+header h1{
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+nav a{
+    margin-left:20px;
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#00f2ff;
+}
+
+/* Hero */
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 10%;
+}
+
+.hero-content{
+    animation:fadeUp 1.5s ease forwards;
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(50px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+.hero h2{
+    font-size:60px;
+    margin-bottom:20px;
+    background:linear-gradient(to right,#00f2ff,#4facfe);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+.btn{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(to right,#00f2ff,#4facfe);
+    cursor:pointer;
+    font-weight:500;
+    transition:0.4s;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 20px #00f2ff;
+}
+
+/* Sections */
+section{
+    padding:100px 10%;
+}
+
+/* Glass Cards */
+.glass-card{
+    background:rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:40px;
+    backdrop-filter:blur(15px);
+    box-shadow:0 8px 32px rgba(0,0,0,0.37);
+    transition:0.5s;
+}
+
+.glass-card:hover{
+    transform:rotateY(10deg) rotateX(5deg);
+}
+
+/* Courses */
+.courses-container{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.course{
+    width:300px;
+    text-align:center;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:30px;
+    background:rgba(0,0,0,0.3);
+    margin-top:50px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .hero h2{font-size:40px;}
+    .courses-container{flex-direction:column;align-items:center;}
+}
+.course-card{
+    width:340px;
+    border-radius:20px;
+    background:#111827;
+    overflow:hidden;
+    transition:0.4s ease;
+    position:relative;
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+.course-card:hover{
+    transform:translateY(-15px);
+    box-shadow:0 25px 60px rgba(0,0,0,0.6);
+}
+
+/* Gradient Top Section */
+.card-top{
+    /* background:linear-gradient(135deg,#4f46e5,#06b6d4); */
+     background:linear-gradient(to right,#00f2ff,#4facfe);
+    padding:30px;
+    position:relative;
+}
+
+.card-icon{
+    font-size:45px;
+}
+
+.card-tag{
+    position:absolute;
+    top:20px;
+    right:20px;
+    background:white;
+    color:#111827;
+    font-size:12px;
+    padding:5px 12px;
+    border-radius:20px;
+    font-weight:600;
+}
+
+/* Card Content */
+.card-content{
+    padding:30px;
+    color:white;
+}
+
+.card-content h3{
+    margin-bottom:15px;
+    font-size:22px;
+}
+
+.card-content p{
+    font-size:14px;
+    opacity:0.8;
+    margin-bottom:20px;
+}
+
+/* Features List */
+.features{
+    list-style:none;
+    padding:0;
+    margin-bottom:25px;
+}
+
+.features li{
+    margin-bottom:8px;
+    font-size:14px;
+    opacity:0.9;
+}
+
+/* Footer */
+.card-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.price{
+    font-size:20px;
+    font-weight:700;
+    color:#06b6d4;
+}
+
+.card-footer button{
+    padding:10px 20px;
+    border:none;
+    border-radius:25px;
+    background:linear-gradient(to right,#4f46e5,#06b6d4);
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card-footer button:hover{
+    transform:scale(1.05);
+    opacity:0.9;
+}
+/* Contact Form */
+.contact-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:40px;
+    justify-content:center;
+    align-items:flex-start;
+}
+
+.contact-form{
+    flex:1;
+    min-width:280px;
+}
+
+.contact-form input{
+     width:100%;
+    padding:12px 15px;
+    margin-bottom:15px;
+    border-radius:10px;
+    border:none;
+    outline:none;
+    background:rgba(255,255,255,0.1);
+    color:white;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+    color: #ffffff;   /* Change this color */
+    opacity: 1;       /* Makes it fully visible */
+}
+.contact-form textarea{
+    width:100%;
+    padding:12px 15px;
+    margin-bottom:15px;
+    border-radius:10px;
+    border:none;
+    outline:none;
+    background:rgba(255,255,255,0.1);
+    color:white;
+}
+
+.contact-form textarea{
+    resize:none;
+    height:120px;
+}
+
+.contact-form button{
+    width:100%;
+}
+
+.map-container{
+    flex:1;
+    min-width:280px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Footer Upgrade */
+footer{
+    background:rgba(0,0,0,0.6);
+    padding:60px 10% 20px;
+}
+
+.footer-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:40px;
+}
+
+.footer-container div{
+    flex:1;
+    min-width:250px;
+}
+
+.footer-container h3,
+.footer-container h4{
+    margin-bottom:15px;
+}
+
+.footer-container p{
+    opacity:0.8;
+    line-height:1.6;
+}
+
+.social-icons a{
+    margin-right:10px;
+    display:inline-block;
+    transition:0.3s;
+}
+
+.social-icons a:hover{
+    transform:scale(1.2);
+}
+
+.footer-bottom{
+    text-align:center;
+    margin-top:40px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,0.1);
+    opacity:0.7;
+}
+/* About Section Advanced */
+
+.about-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:50px;
+    align-items:center;
+    justify-content:center;
+}
+
+.about-text{
+    flex:1;
+    min-width:280px;
+}
+
+.about-image{
+    flex:1;
+    min-width:280px;
+    text-align:center;
+}
+
+.about-image img{
+    width:100%;
+    max-width:400px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.5);
+}
+
+.counters{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:40px;
+    margin-top:50px;
+    text-align:center;
+}
+
+.counter-box h3{
+    font-size:40px;
+    color:#00f2ff;
+}
+
+.timeline{
+    margin-top:60px;
+}
+
+.timeline-item{
+    margin-bottom:30px;
+    padding:20px;
+    background:rgba(255,255,255,0.05);
+    border-left:4px solid #00f2ff;
+    border-radius:10px;
+}
+.certification-section{
+padding:60px 10%;
+background:#f4f7ff;
+text-align:center;
+}
+
+.certification-section h2{
+font-size:32px;
+margin-bottom:10px;
+color:#1e3a8a;
+}
+
+.certification-section p{
+margin-bottom:40px;
+color:#555;
+}
+
+.certification-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.cert-card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.cert-card:hover{
+transform:translateY(-8px);
+box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+.cert-card h3{
+color:#2563eb;
+margin-bottom:10px;
+}
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.popup-box{
+background:#0b1624;
+padding:30px 50px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 20px 60px rgba(0,0,0,0.6);
+}
+
+.popup-box h3{
+margin-bottom:20px;
+}
+
+.popup-box button{
+padding:10px 25px;
+border:none;
+border-radius:20px;
+background:linear-gradient(to right,#00f2ff,#4facfe);
+color:white;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="circle"></div>
+<div class="circle"></div>
+
+<header>
+    <h1>Rising Academy</h1>
+    <nav>
+        <a href="Index.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Course.html">Courses</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h2>Learn. Grow. Succeed.</h2>
+        <p>Premium education platform for future leaders & creators.</p>
+        <button class="btn">Start Learning</button>
+    </div>
+</section> 
+
+<!-- <section id="about">
+    <div class="glass-card">
+        <h2>About Our Academy</h2>
+        <p>
+             Rising Academy provides high-quality professional training
+            with modern technology, expert mentors, and real-world projects.
+        </p>
+    </div>
+</section> -->
+<section id="about">
+    <div class="glass-card">
+
+        <h2 style="text-align:center;margin-bottom:40px;">
+            About Rising Academy
+        </h2>
+
+        <!-- Image + Text Layout -->
+        <div class="about-container">
+
+            <div class="about-text">
+                <h3>Empowering Future Professionals</h3>
+                <p style="line-height:1.7;margin-top:15px;">
+                    Rising Academy is dedicated to transforming students into 
+                    skilled professionals through practical learning, 
+                    real-world projects, and expert mentorship.
+                    Our goal is to bridge the gap between education and industry.
+                </p>
+
+                <p style="margin-top:15px;opacity:0.9;">
+                    We focus on career-oriented training that prepares 
+                    students for real job opportunities and business growth.
+                </p>
+            </div>
+
+            <div class="about-image">
+                <img src="https://risingacademyonline.in/wp-content/uploads/2024/09/center-image-scaled.jpg" alt="Academy Image">
+            </div>
+
+        </div>
+
+        <!-- Animated Counters -->
+        <div class="counters">
+
+            <div class="counter-box">
+                <h3 class="counter" data-target="500">1000+</h3>
+                <p>Students Trained</p>
+            </div>
+
+            <div class="counter-box">
+                <h3 class="counter" data-target="20">10+</h3>
+                <p>Professional Courses</p>
+            </div>
+
+            <div class="counter-box">
+                <h3 class="counter" data-target="15">5+</h3>
+                <p>Expert Mentors</p>
+            </div>
+
+            <div class="counter-box">
+                <h3 class="counter" data-target="95">200+</h3>
+                <p>Placement Success %</p>
+            </div>
+
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline">
+            <h3 style="margin-bottom:20px;">Our Journey</h3>
+
+            <div class="timeline-item">
+                <strong>2023</strong> – Rising Academy Founded
+            </div>
+
+            <div class="timeline-item">
+                <strong>2024</strong> – Launched Full Stack & Computer Courses
+            </div>
+
+            <div class="timeline-item">
+                <strong>2025</strong> – Expanded with Internship & Placement Support
+            </div>
+        </div>
+
+        <!-- Founder Message -->
+        <div style="margin-top:60px;text-align:center;">
+            <h3>Founder’s Message</h3>
+            <p style="max-width:700px;margin:20px auto;line-height:1.7;opacity:0.9;">
+                "Our mission is to create confident, skilled, and 
+                career-ready individuals. At Rising Academy, we believe 
+                practical knowledge is the key to success."
+            </p>
+        </div>
+
+    </div>
+</section>
+<section class="certification-section">
+  <h2>Government Approved Certifications</h2>
+  <p>
+    Our institute provides industry recognized and government approved
+    certifications to help students build a strong career in the IT field.
+  </p>
+
+  <div class="certification-container">
+
+    <div class="cert-card">
+      <h3>HKCL Certified Courses</h3>
+      <p>Courses aligned with HKCL standards to ensure quality computer education.</p>
+    </div>
+
+    <div class="cert-card">
+      <h3>NSQF Certification</h3>
+      <p>Programs designed according to National Skill Qualification Framework.</p>
+    </div>
+
+    <div class="cert-card">
+      <h3>SET-C Approved</h3>
+      <p>Recognized certification programs that validate students' technical skills.</p>
+    </div>
+
+    <div class="cert-card">
+      <h3>ISO Certified Training</h3>
+      <p>Training institute following ISO quality standards in education.</p>
+    </div>
+
+    <div class="cert-card">
+      <h3>Course Duration</h3>
+      <p>Courses available for 3 Months, 6 Months and 12 Months with certification.</p>
+    </div>
+
+  </div>
+</section>
+<section id="courses">
+    <h2 style="text-align:center;margin-bottom:50px;">Our Courses</h2>
+    <div class="courses-container">
+        <!-- <div class="glass-card course">
+            <h3>Full Stack Development</h3>
+            <p>Frontend + Backend + Projects</p>
+        </div>
+        <div class="glass-card course">
+            <h3>UI/UX Design</h3>
+            <p>Modern Creative Designing</p>
+        </div>
+        <div class="glass-card course">
+            <h3>Digital Marketing</h3>
+            <p>SEO, Social Media, Branding</p>
+        </div>
+          <div class="glass-card course">
+            <h3>Basic Computer</h3>
+            <p> WS Word + MS excel + Powerpoint</p>
+        </div> -->
+        <div class="course-card">
+    <div class="card-top">
+        <div class="card-tag">🔥 Trending</div>
+        <div class="card-icon">
+            <span>🚀</span>
+        </div>
+    </div>
+
+    <div class="card-content">
+        <h3>Full Stack Development</h3>
+        <p>
+            Master HTML, CSS, JavaScript, React, Node.js & Databases
+            with real-world projects and job-ready skills.
+        </p>
+
+        <ul class="features">
+            <li>✔ Live Projects</li>
+            <li>✔ Internship Certificate</li>
+            <li>✔ Job Assistance</li>
+        </ul>
+
+        <div class="card-footer">
+            <span class="price">₹12,999</span>
+            <a href="admisssion.html">
+                <button>Enroll Now</button>
+            </a>
+            
+        </div>
+    </div>
+    
+</div> 
+<div class="course-card">
+    <div class="card-top">
+        <div class="card-tag">🔥 Trending</div>
+        <div class="card-icon">
+            <span>🚀</span>
+        </div>
+    </div>
+
+    <div class="card-content">
+        <h3>Basic Computer</h3>
+        <p>
+            Master MS-Word,MS- excel,MS-Powerpoint
+            with real-world projects and job-ready skills.
+        </p>
+
+        <ul class="features">
+            <li>✔ Live Projects</li>
+            <li>✔ Internship Certificate</li>
+            <li>✔ Job Assistance</li>
+        </ul>
+
+        <div class="card-footer">
+            <span class="price">₹4500/</span>
+            <!-- <button>Enroll Now</button> -->
+                <a href="admisssion.html">
+                <button>Enroll Now</button>
+            </a>
+        </div>
+    </div>
+    
+</div> 
+ <div class="course-card">
+    <div class="card-top">
+        <div class="card-tag">🔥 Trending</div>
+        <div class="card-icon">
+            <span>🚀</span>
+        </div>
+    </div>
+
+    <div class="card-content">
+        <h3>Tally</h3>
+        <p>
+            Master Tally manual and software by using taly prime
+            with real-world projects and job-ready skills.
+        </p>
+
+        <ul class="features">
+            <li>✔ Live Projects</li>
+            <li>✔ Internship Certificate</li>
+            <li>✔ Job Assistance</li>
+        </ul>
+
+        <div class="card-footer">
+            <span class="price">₹4500/</span>
+            <!-- <button>Enroll Now</button> -->
+                <a href="admisssion.html">
+                <button>Enroll Now</button>
+            </a>
+        </div>
+
+    </div>
+    
+</div>
+         
+     <div class="course-card">
+    <div class="card-top">
+        <div class="card-tag">🔥 Trending</div>
+        <div class="card-icon">
+            <span>🚀</span>
+        </div>
+    </div>
+
+    <div class="card-content">
+        <h3>Vedio editing</h3>
+        <p>
+            Master with vedio editing and try to make a professional vedio editing.
+        </p>
+
+        <ul class="features">
+            <li>✔ Live Projects</li>
+            <li>✔ Internship Certificate</li>
+            <li>✔ Job Assistance</li>
+        </ul>
+
+        <div class="card-footer">
+            <span class="price">₹4500/</span>
+            <!-- <button>Enroll Now</button> -->
+                <a href="admisssion.html">
+                <button>Enroll Now</button>
+            </a>
+        </div>
+    </div>
+    
+    
+</div>
+         
+    </div>
+         
+    </div>
+</section>
+<section></section>
+
+<!-- <section id="contact">
+    <div class="glass-card">
+        <h2>Contact Us</h2>
+        <p>Email: riisngacademy.com</p>
+        <p>Phone: +91 8529459004</p>
+    </div>
+</section> -->
+<section id="contact">
+    <div class="glass-card">
+        <h2 style="text-align:center;margin-bottom:30px;">Contact Us</h2>
+
+        <div class="contact-container">
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <form onsubmit="showPopup(event)">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button class="btn" type="submit">Send Message</button>
+                </form>
+      <div id="successPopup" class="popup">
+    <div class="popup-box">
+        <h3>✅ Message Sent Successfully!</h3>
+        <button onclick="closePopup()">OK</button>
+    </div>
+</div>
+            </div>
+
+            <!-- Google Map -->
+            <div class="map-container">
+                <!-- <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224346.48191706402!2d77.068899!3d28.527280!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1d8d1a6a2a21%3A0x3c8c4e6d0f3c5f2c!2sDelhi!5e0!3m2!1sen!2sin!4v1700000000000"
+                    width="100%" 
+                    height="350" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe> -->
+                <div class="map-container">
+    <iframe 
+        src="https://www.google.com/maps?q=Shiv%20Chowk%20near%20Alka%20Hospital%20Gharaunda%20Karnal%20Haryana&output=embed"
+        width="100%" 
+        height="350" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+    </iframe>                                                                                             
+</div>
+            </div>
+
+        </div>
+
+        <div style="text-align:center;margin-top:40px;">
+            <p><strong>Email:</strong> info@risingacademy.com</p>
+            <p><strong>Phone:</strong> +91 8529459004</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- <footer>
+    © 2026 Rising Academy | All Rights Reserved
+</footer> -->
+<footer>
+  <div class="footer-container">
+    <!-- About Section -->
+    <div class="footer-about">
+      <h3>Rising Academy</h3>
+      <p>
+        Empowering students with professional skills, expert mentors, and real-world projects. Learn, grow, and succeed with us.
+      </p>
+    </div>
+
+    
+    
+    <!-- Contact Info -->
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p>Email: info@Rising.com</p>
+      <p>Phone: +918529520054</p>
+      <div class="social-icons">
+        <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"/></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png"/></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png"/></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/linkedin.png"/></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <p>© 2026 Rising Academy | All Rights Reserved</p>
+  </div>
+</footer>
+<script>
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+        }
+    });
+});
+
+document.querySelectorAll("section").forEach(section => {
+    section.style.opacity = "0";
+    section.style.transform = "translateY(50px)";
+    section.style.transition = "all 1s ease";
+    observer.observe(section);
+});
+
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+    counter.innerText = '0';
+
+    const updateCounter = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+
+        const increment = target / 100;
+
+        if(count < target){
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCounter, 20);
+        } else {
+            counter.innerText = target;
+        }
+    };
+
+    updateCounter();
+    
+});
+
+function showPopup(event){
+event.preventDefault();
+document.getElementById("successPopup").style.display="flex";
+event.target.reset();
+}
+
+function closePopup(){
+document.getElementById("successPopup").style.display="none";
+}
+</script>
+
+</body>
+</html>
