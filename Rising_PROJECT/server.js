@@ -38,6 +38,10 @@
 // app.listen(PORT, ()=>{
 // console.log("Server running on port " + PORT);
 // });
+
+
+
+
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -63,8 +67,14 @@ app.use("/contact", contactRoutes);
 
 /* Server */
 
-const PORT = 5000;
+// const PORT = 5000;
 
-app.listen(PORT, ()=>{
-console.log("Server running on port " + PORT);
+// app.listen(PORT, ()=>{
+// console.log("Server running on port " + PORT);
+// });
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+console.log(`Server running on port ${PORT}`);
 });
