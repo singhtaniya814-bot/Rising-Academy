@@ -1,0 +1,416 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses - Rising Academy</title>
+
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+overflow-x:hidden;
+}
+
+/* Floating 3D circles */
+.circle{
+position:absolute;
+border-radius:50%;
+background:linear-gradient(45deg,#00f2fe,#4facfe);
+opacity:0.15;
+animation:float 6s ease-in-out infinite;
+}
+
+.circle1{width:250px;height:250px;top:5%;left:5%;}
+.circle2{width:300px;height:300px;bottom:5%;right:5%;animation-delay:2s;}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-40px);}
+}
+
+/* Navbar */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 10%;
+background:rgba(0,0,0,0.3);
+}
+
+nav h1{color:#00f2fe;}
+nav ul{list-style:none;display:flex;gap:30px;}
+nav ul li a{text-decoration:none;color:white;transition:0.3s;}
+nav ul li a:hover{color:#00f2fe;}
+
+/* Hero */
+.hero{
+text-align:center;
+padding:80px 20px;
+}
+
+.hero h2{
+font-size:50px;
+background:linear-gradient(to right,#00f2fe,#4facfe);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+margin-top:15px;
+color:#cbd5e1;
+}
+
+/* Course Grid */
+.courses{
+padding:60px 10%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+perspective:1000px;
+}
+
+/* 3D Card */
+.course-card{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+transition:0.6s;
+transform-style:preserve-3d;
+backdrop-filter:blur(10px);
+position:relative;
+overflow:hidden;
+}
+
+.course-card:hover{
+transform:rotateY(10deg) rotateX(5deg) scale(1.05);
+}
+
+/* Card Glow Effect */
+.course-card::before{
+content:"";
+position:absolute;
+top:-50%;
+left:-50%;
+width:200%;
+height:200%;
+background:linear-gradient(45deg,#00f2fe,#4facfe,transparent);
+transform:rotate(45deg);
+opacity:0.1;
+}
+
+.course-card h3{
+margin-bottom:15px;
+color:#00f2fe;
+}
+
+.course-card p{
+color:#dbeafe;
+margin-bottom:20px;
+}
+
+.btn{
+padding:10px 25px;
+border:none;
+border-radius:30px;
+background:linear-gradient(to right,#00f2fe,#4facfe);
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn:hover{
+box-shadow:0 0 20px #00f2fe;
+}
+
+/* Footer */
+footer{
+text-align:center;
+padding:20px;
+background:rgba(0,0,0,0.3);
+margin-top:40px;
+}
+
+/* Responsive */
+@media(max-width:900px){
+.hero h2{font-size:35px;}
+}
+
+</style>
+</head>
+<body>
+
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+
+<nav>
+<h1>Rising Academy</h1>
+<ul>
+<li><a href="Index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="course.html">Courses</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero" data-aos="fade-up">
+<h2>Our Professional Courses</h2>
+<p>Upgrade your skills with industry-focused training programs</p>
+</section>
+
+<section class="courses">
+
+<div class="course-card" data-aos="fade-up">
+<h3>Web Development</h3>
+<p>Learn HTML, CSS, JavaScript, React and build real-world websites.</p>
+<button class="btn">Enroll Now</button>
+</div>
+
+<div class="course-card" data-aos="fade-up" data-aos-delay="200">
+<h3>Python Programming</h3>
+<p>From basics to advanced concepts with practical projects.</p>
+<button class="btn">Enroll Now</button>
+</div>
+
+<div class="course-card" data-aos="fade-up" data-aos-delay="400">
+<h3>Graphic Design</h3>
+<p>Master logo design, branding, Photoshop and Illustrator.</p>
+<button class="btn">Enroll Now</button>
+</div>
+
+<div class="course-card" data-aos="fade-up">
+<h3>Digital Marketing</h3>
+<p>SEO, Social Media Marketing, Google Ads and branding strategies.</p>
+<button class="btn">Enroll Now</button>
+</div>
+
+<div class="course-card" data-aos="fade-up" data-aos-delay="200">
+<h3>Data Analytics</h3>
+<p>Learn Excel, Power BI and data visualization techniques.</p>
+<button class="btn">Enroll Now</button>
+</div>
+
+<div class="course-card" data-aos="fade-up" data-aos-delay="400">
+<h3>App Development</h3>
+<p>Create Android apps using modern frameworks and tools.</p>
+<button class="btn">Enroll Now</button>
+</div>
+
+</section>
+
+<footer>
+© 2026 Rising Academy | All Rights Reserved
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init();
+</script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses - Rising Academy</title>
+
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+overflow-x:hidden;
+} 
+
+
+.circle{
+position:absolute;
+border-radius:50%;
+background:linear-gradient(45deg,#00f2fe,#4facfe);
+opacity:0.15;
+animation:float 6s ease-in-out infinite;
+}
+
+.circle1{width:250px;height:250px;top:5%;left:5%;}
+.circle2{width:300px;height:300px;bottom:5%;right:5%;animation-delay:2s;}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-40px);}
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 10%;
+background:rgba(0,0,0,0.3);
+}
+
+nav h1{color:#00f2fe;}
+nav ul{list-style:none;display:flex;gap:30px;}
+nav ul li a{text-decoration:none;color:white;transition:0.3s;}
+nav ul li a:hover{color:#00f2fe;}
+
+.hero{
+text-align:center;
+padding:80px 20px;
+}
+
+.hero h2{
+font-size:50px;
+background:linear-gradient(to right,#00f2fe,#4facfe);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+margin-top:15px;
+color:#cbd5e1;
+}
+
+.courses{
+padding:60px 10%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+perspective:1000px;
+}
+
+.course-card{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+transition:0.6s;
+transform-style:preserve-3d;
+backdrop-filter:blur(10px);
+}
+
+.course-card:hover{
+transform:rotateY(10deg) rotateX(5deg) scale(1.05);
+}
+
+.course-card h3{
+margin-bottom:15px;
+color:#00f2fe;
+}
+
+.course-card p{
+color:#dbeafe;
+margin-bottom:20px;
+}
+
+.btn{
+display:inline-block;
+padding:10px 25px;
+border-radius:30px;
+background:linear-gradient(to right,#00f2fe,#4facfe);
+color:white;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn:hover{
+box-shadow:0 0 20px #00f2fe;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:rgba(0,0,0,0.3);
+margin-top:40px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+
+<nav>
+<h1>Rising Academy</h1>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="course.html">Courses</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero" data-aos="fade-up">
+<h2>Our Professional Courses</h2>
+<p>Upgrade your skills with industry-focused training programs</p>
+</section>
+
+<section class="courses">
+
+<div class="course-card">
+<h3>Web Development</h3>
+<p>Learn HTML, CSS, JavaScript, React and build real-world websites.</p>
+<a href="admisssion.html" class="btn">Enroll Now</a>
+</div>
+
+<div class="course-card">
+<h3>Python Programming</h3>
+<p>From basics to advanced concepts with practical projects.</p>
+<a href="admisssion.html" class="btn">Enroll Now</a>
+</div>
+
+<div class="course-card">
+<h3>Graphic Design</h3>
+<p>Master logo design, branding, Photoshop and Illustrator.</p>
+<a href="admisssion.html" class="btn">Enroll Now</a>
+</div>
+
+<div class="course-card">
+<h3>Digital Marketing</h3>
+<p>SEO, Social Media Marketing, Google Ads and branding strategies.</p>
+<a href="admisssion.html" class="btn">Enroll Now</a>
+</div>
+
+<div class="course-card">
+<h3>Data Analytics</h3>
+<p>Learn Excel, Power BI and data visualization techniques.</p>
+<a href="admisssion.html" class="btn">Enroll Now</a>
+</div>
+
+<div class="course-card">
+<h3>App Development</h3>
+<p>Create Android apps using modern frameworks and tools.</p>
+<a href="admisssion.html" class="btn">Enroll Now</a>
+</div>
+
+</section>
+
+<footer>
+© 2026 Rising Academy | All Rights Reserved
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init();
+</script>
+
+</body>
+</html>

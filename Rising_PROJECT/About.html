@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - Rising Academy</title>
+
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+overflow-x:hidden;
+}
+
+/* Floating 3D background circles */
+.circle{
+position:absolute;
+border-radius:50%;
+background:linear-gradient(45deg,#00f2fe,#4facfe);
+animation:float 6s ease-in-out infinite;
+opacity:0.2;
+}
+
+.circle1{width:200px;height:200px;top:10%;left:5%;}
+.circle2{width:300px;height:300px;bottom:10%;right:5%;animation-delay:2s;}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-40px);}
+}
+
+/* Navbar */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 10%;
+background:rgba(0,0,0,0.3);
+}
+
+nav h1{color:#00f2fe;}
+nav ul{list-style:none;display:flex;gap:30px;}
+nav ul li a{text-decoration:none;color:white;transition:0.3s;}
+nav ul li a:hover{color:#00f2fe;}
+
+/* Hero */
+.hero{
+text-align:center;
+padding:80px 20px;
+}
+
+.hero h2{
+font-size:50px;
+background:linear-gradient(to right,#00f2fe,#4facfe);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+margin-top:15px;
+color:#cbd5e1;
+}
+
+/* About section */
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+padding:60px 10%;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:20px;
+transition:0.6s;
+transform-style:preserve-3d;
+/* filter: blur(10); */
+}
+
+.about img:hover{
+transform:rotateY(15deg) rotateX(5deg);
+}
+
+.about-text{
+background:rgba(255,255,255,0.05);
+padding:40px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+}
+
+/* Stats */
+.stats{
+display:flex;
+justify-content:space-around;
+padding:60px 10%;
+text-align:center;
+}
+
+.stat h3{
+font-size:40px;
+color:#00f2fe;
+}
+
+/* Team */
+.team{
+padding:60px 10%;
+text-align:center;
+}
+
+.team-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.member{
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:20px;
+transition:0.4s;
+}
+
+.member img{
+width:100%;
+border-radius:20px;
+}
+
+.member:hover{
+transform:translateY(-10px);
+}
+
+/* Testimonials */
+.testimonials{
+padding:60px 10%;
+text-align:center;
+}
+
+.test-box{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+margin-top:30px;
+}
+
+/* Footer */
+footer{
+text-align:center;
+padding:20px;
+background:rgba(0,0,0,0.3);
+margin-top:40px;
+}
+
+/* Responsive */
+@media(max-width:900px){
+.about{grid-template-columns:1fr;}
+.stats{flex-direction:column;gap:30px;}
+}
+.blur-border{
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+    
+}
+.certification-section{
+padding:60px 10%;
+background:#f4f7ff;
+text-align:center;
+}
+
+.certification-section h2{
+font-size:32px;
+margin-bottom:10px;
+color:#1e3a8a;
+}
+
+.certification-section p{
+margin-bottom:40px;
+color:#555;
+}
+
+.certification-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.cert-card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.cert-card:hover{
+transform:translateY(-8px);
+box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+.cert-card h3{
+color:#2563eb;
+margin-bottom:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+
+<nav>
+<h1>Rising Academy</h1>
+<ul>
+<li><a href="Index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="Course.html">Courses</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero" data-aos="fade-up">
+<h2>About Rising Academy</h2>
+<p>We provide professional skill-based education with real-world learning experience.</p>
+</section>
+
+<section class="about">
+<img src="image academy.jpg" alt="Academy Image" data-aos="zoom-in">
+
+<div class="about-text" data-aos="fade-left">
+<h3>Who We Are</h3>
+<p>
+Rising Academy is dedicated to delivering modern technical education 
+including Web Development, Python Programming, and Graphic Design. 
+We focus on practical learning and career growth.
+</p>
+</div>
+</section>
+
+<section class="stats">
+<div class="stat">
+<h3 class="counter" data-target="500">0</h3>
+<p>Students</p>
+</div>
+<div class="stat">
+<h3 class="counter" data-target="10">0</h3>
+<p>Courses</p>
+</div>
+<div class="stat">
+<h3 class="counter" data-target="5">0</h3>
+<p>Years Experience</p>
+</div>
+</section>
+<section class="certification-section">
+  <h2>Government Approved Certifications</h2>
+  <p>
+    Our institute provides industry recognized and government approved
+    certifications to help students build a strong career in the IT field.
+  </p>
+
+  <div class="certification-container">
+
+    <div class="cert-card">
+      <h3>HKCL Certified Courses</h3>
+      <p>Courses aligned with HKCL standards to ensure quality computer education.</p>
+    </div>
+
+    <div class="cert-card">
+      <h3>NSQF Certification</h3>
+      <p>Programs designed according to National Skill Qualification Framework.</p>
+    </div>
+
+    <div class="cert-card">
+      <h3>SET-C Approved</h3>
+      <p>Recognized certification programs that validate students' technical skills.</p>
+    </div>
+
+    <div class="cert-card">
+      <h3>ISO Certified Training</h3>
+      <p>Training institute following ISO quality standards in education.</p>
+    </div>
+
+    <div class="cert-card">
+      <h3>Course Duration</h3>
+      <p>Courses available for 3 Months, 6 Months and 12 Months with certification.</p>
+    </div>
+
+  </div>
+</section>
+<section class="team">
+<h2 data-aos="fade-up">Our Team</h2>
+<div class="team-grid">
+<div class="member" data-aos="fade-up">
+<img src="taniya.jpg" class="blur-border">
+<h4>Taniya</h4>
+<p>Python Trainer</p>
+</div>
+<div class="member" data-aos="fade-up" data-aos-delay="200">
+<img src="pooja.jpg">
+<h4>Pooja</h4>
+<p>Computer + Tally</p>
+</div>
+<div class="member" data-aos="fade-up" data-aos-delay="400">
+<img src="anjana.jpg">
+<h4>Anjana</h4>
+<p>Computer Skills</p>
+</div>
+</div>
+</section>
+
+<section class="testimonials">
+<h2 data-aos="fade-up">What Students Say</h2>
+<div class="test-box" data-aos="zoom-in">
+<p>"Best academy for practical learning and career growth!"</p>
+<h4>- Student Review</h4>
+</div>
+</section>
+
+<footer>
+© 2026 Rising Academy | All Rights Reserved
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init();
+
+/* Counter Animation */
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+counter.innerText = '0';
+const updateCounter = () => {
+const target = +counter.getAttribute('data-target');
+const c = +counter.innerText;
+const increment = target / 200;
+if(c < target){
+counter.innerText = `${Math.ceil(c + increment)}`;
+setTimeout(updateCounter,10);
+}else{
+counter.innerText = target;
+}
+};
+updateCounter();
+});
+</script>
+
+</body>
+</html>
