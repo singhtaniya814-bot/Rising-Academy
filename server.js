@@ -1,6 +1,16 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const nodemailer = require("nodemailer");  // Line 1
+
+// EMAIL SETUP - Lines 2-6
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'singhtaniya814@gmail.com',
+    pass: 'zmayreyjavmdsmap'  // Line 6
+  }
+});
 
 const app = express();
 app.use(cors());
