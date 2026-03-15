@@ -1,77 +1,96 @@
-// const express = require("express");
+// const express = require('express');
+// const mongoose = require('mongoose');
+// const nodemailer = require('nodemailer');
 // const router = express.Router();
-// const Contact = require("../models/Contact");
 
-// router.post("/", async (req,res)=>{
+// // Model
+// const Contact = mongoose.model('Contact', new mongoose.Schema({
+//   name: String, email: String, message: String
+// }));
 
-// try{
-
-// const contact = new Contact(req.body);
-
-// await contact.save();
-
-// res.json({
-// message:"Message Sent Successfully"
+// // Email
+// const transporter = nodemailer.createTransport({
+//   service: 'gmail',
+//   auth: {
+//     user: 'singhtaniya814@gmail.com',
+//     pass: 'zmayreyjavmdsmap'
+//   }
 // });
 
-// }catch(error){
-
-// res.status(500).json({error:error.message});
-
-// }
-
-// });
-
-// module.exports = router;
+// router.post('/', async (req, res) => {
+//   try {
+//     const { name, email, message
 const express = require("express");
-const router = express.Router();
-const Contact = require("../models/contact");
-
+const mongoose = require("mongoose");
 const nodemailer = require("nodemailer");
 
+const router = express.Router();
+
+/* Model */
+
+const Contact = mongoose.model(
+  "Contact",
+  new mongoose.Schema({
+    name: String,
+    email: String,
+    message: String,
+  })
+);
+
+/* Email transporter */
+
 const transporter = nodemailer.createTransport({
-
-service:"gmail",
-
-auth:{
-user:"singhtaniya814@gmail.com",
-pass:"zmayreyjavmdsmap"
-}
-
+  service: "gmail",
+  auth: {
+    user: "singhtaniya814@gmail.com",
+    pass: "zmayreyjavmdsmap"
+  }
 });
 
-router.post("/", async (req,res)=>{
+/* Contact form route */
 
-try{
+router.post("/", async (req, res) => {
 
-const contact = new Contact(req.body);
+  try {
 
-await contact.save();
+    const { name, email, message } = req.body;
 
-const mailOptions = {
+    /* Save to MongoDB */
 
-from:"singhtaniya814@gmail.com",
-to:"zmayreyjavmdsmap",
+    const newContact = new Contact({
+      name,
+      email,
+      message
+    });
 
-subject:"New Contact Message",
+    await newContact.save();
 
-text:`
-Name: ${req.body.name}
-Email: ${req.body.email}
-Message: ${req.body.message}
+    /* Send email */
+
+    await transporter.sendMail({
+      from: email,
+      to: "singhtaniya814@gmail.com",
+      subject: "New Contact Form Message",
+      text: `
+Name: ${name}
+Email: ${email}
+Message: ${message}
 `
+    });
 
-};
+    res.json({
+      message: "Message Sent Successfully"
+    });
 
-await transporter.sendMail(mailOptions);
+  } catch (error) {
 
-res.json({message:"Message Sent Successfully"});
+    console.log(error);
 
-}catch(error){
+    res.status(500).json({
+      error: "Something went wrong"
+    });
 
-res.status(500).json({error:error.message});
-
-}
+  }
 
 });
 
